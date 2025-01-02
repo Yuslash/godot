@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://blwxlsy5xu2ce"]
+
+[ext_resource type="Texture2D" uid="uid://dy1degah138p1" path="res://assets/New Piskel.png" id="1_sywux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jebm"]
+atlas = ExtResource("1_sywux")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ena"]
+atlas = ExtResource("1_sywux")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn8l6"]
+atlas = ExtResource("1_sywux")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujufh"]
+atlas = ExtResource("1_sywux")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kldb0"]
+atlas = ExtResource("1_sywux")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvkq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jebm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ena")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn8l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujufh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kldb0")
+}],
+"loop": true,
+"name": &"character_moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkfqs"]
+radius = 6.0
+height = 24.0
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hvkq1")
+animation = &"character_moving"
+frame_progress = 0.8744
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_bkfqs")
